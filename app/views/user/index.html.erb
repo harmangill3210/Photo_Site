@@ -1,0 +1,36 @@
+<html>
+<h1>PhotoSite User Index Page
+</h1>
+<head >
+<h3> There are <%=@users.count%> users</h3>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid orange;
+      padding: 10px;
+      text-align: left;
+    }
+  </style>
+<table  >
+  <thead>
+  <tr>
+  <th>User</th>
+  <th>First Name</th>
+  <th>Last Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.id, link_photos_path(user.id) %></td>
+        <td><%=user.first_name%></td>
+        <td><%=user.last_name%></td>
+      </tr>
+  <%end%>
+  </tbody>
+
+</table>
+</head>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<h1>Comments of User Photo Page
+</h1>
+<h3>
+  Comments of <%=@user.first_name%> <%=@user.last_name%>
+</h3>
+<style>
+  table {
+    border-collapse: collapse;
+  }
+  th, td ,tr{
+    border: 1px solid orange;
+    padding: 10px;
+    text-align: left;
+  }
+</style>
+<body>
+<table>
+
+  <% @comments.each do|comment_variable| %>
+      <tr>
+        <td>
+    <p><b>Comment :</b><%=comment_variable.comment_text%></p>
+      </td></tr>
+      <tr>
+      <td>
+    <p>Comment Created at <%=comment_variable.date_time%></p>
+      </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Posted By:<%=link_to index_user_name(comment_variable.user_id),user_photos_path[comment_variable.user_id]%></p>
+        </td>
+        <%end%>
+      </tr>
+      </table>
+
+</body>
+</html>

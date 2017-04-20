@@ -1,0 +1,45 @@
+<html>
+<head>
+<h1>PhotoSite User Photo Page
+</h1>
+<h3>
+<h3> Photos of <%=@user.first_name%> <%=@user.last_name%></h3>
+</h3>
+<body>
+<style>
+  table {
+    border-collapse: collapse;
+  }
+  th, td,tr {
+    border: 1px solid orange;
+    padding: 10px;
+    text-align: left;
+  }
+</style>
+<table>
+  <tbody>
+  <tr>
+  <td>
+<% @photos.each do|photo_variable| %>
+
+    <%=image_tag(photo_variable.file_name , alt: '#')%>
+        </td></tr>
+<tr>
+  <td>
+
+    <p>Photo Created at <%=photo_variable.date_time%></p>
+  </td>
+</tr>
+        <tr>
+          <td>
+            <p><%= link_to "Show Comments", link_comments_path(photo_variable.id) %></p>
+    <%end%>
+
+</td>
+  </tr>
+</tbody>
+
+</table>
+</body>
+</head>
+</html>
